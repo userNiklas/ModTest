@@ -9,6 +9,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = "ModTest", name = "Mod Test", version = "1.7.10-1.0")
 public class ModTest 
 {
+	@Mod.Instance("ModTest")
+	public static ModTest instance;
+	
 	@Mod.EventHandler()
 	public void preInit(FMLPreInitializationEvent event)
 	{
