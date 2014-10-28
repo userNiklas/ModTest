@@ -1,6 +1,10 @@
 package com.userniklas.modtest;
 
+import java.io.File;
+
+import com.userniklas.modtest.config.ConfigHandler;
 import com.userniklas.modtest.proxy.IProxy;
+import com.userniklas.modtest.reference.Reference;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -8,19 +12,19 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "ModTest", name = "Mod Test", version = "1.7.10-1.0")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class ModTest 
 {
-	@Mod.Instance("ModTest")
+	@Mod.Instance(Reference.MOD_ID)
 	public static ModTest instance;
 	
-	@SidedProxy(clientSide = "ClientProxy", serverSide = "ServerProxy")
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static IProxy proxy;
 	
 	@Mod.EventHandler()
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 	}
 	
 	@Mod.EventHandler()
