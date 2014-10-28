@@ -2,6 +2,8 @@ package com.userniklas.modtest.handler;
 
 import java.io.File;
 
+import org.apache.logging.log4j.Level;
+
 import com.userniklas.modtest.reference.Reference;
 
 import cpw.mods.fml.client.event.ConfigChangedEvent;
@@ -16,9 +18,10 @@ public class ConfigHandler
 	public static void init(File configFile)
 	{
 		if(config == null) config = new Configuration(configFile);
+		loadConfig();
 	}
 	
-	public void loadConfig()
+	private static void loadConfig()
 	{
 		configValue = config.getBoolean("configValue", Configuration.CATEGORY_GENERAL, false, "Config value example");
 		if(config.hasChanged()) config.save();
