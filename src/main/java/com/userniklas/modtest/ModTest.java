@@ -2,7 +2,7 @@ package com.userniklas.modtest;
 
 import java.io.File;
 
-import com.userniklas.modtest.config.ConfigHandler;
+import com.userniklas.modtest.handler.ConfigHandler;
 import com.userniklas.modtest.proxy.IProxy;
 import com.userniklas.modtest.reference.Reference;
 
@@ -12,7 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class ModTest 
 {
 	@Mod.Instance(Reference.MOD_ID)
