@@ -3,6 +3,7 @@ package com.userniklas.modtest;
 import java.io.File;
 
 import com.userniklas.modtest.handler.ConfigHandler;
+import com.userniklas.modtest.init.ModItems;
 import com.userniklas.modtest.proxy.IProxy;
 import com.userniklas.modtest.reference.Reference;
 import com.userniklas.modtest.util.Logger;
@@ -28,6 +29,8 @@ public class ModTest
 	{
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		FMLCommonHandler.instance().bus().register(new ConfigHandler());
+		ModItems.init();
+		
 		Logger.info("PreInit");
 	}
 	
